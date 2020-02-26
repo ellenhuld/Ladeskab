@@ -2,7 +2,7 @@
 
 namespace TestUnitLadeskab
 {
-    public class Class1
+    public class TestLadeskab
     {
     }
 }

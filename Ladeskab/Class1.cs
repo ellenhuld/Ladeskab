@@ -8,5 +8,6 @@ namespace Ladeskab
 {
     public class TestLadeskab
     {
+        private Ladeskab   {}
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ladeskab
+namespace Ladeskab.Interface
 {
-    public class TestLadeskab
+    class IWriter
     {
-        
     }
 }

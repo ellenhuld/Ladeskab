@@ -7,7 +7,7 @@ using Ladeskab.Interface;
 
 namespace Ladeskab
 {
-    class RFIDReader : IReader
+    public class RFIDReader : IReader
     {
         private int _oldid;
         public event EventHandler<ReadtagChangedEventArgs> TagDataEvent;

@@ -16,7 +16,7 @@ namespace TestUnitLadeskab
         private  USBCharger _uut;
         private ICharge _charge;
 
-            [SetUp]
+        [SetUp]
         public void Setup()
         {
             _uut = new USBCharger();
@@ -26,6 +26,7 @@ namespace TestUnitLadeskab
         [Test]
         public void CurrentIsConnected()
         {
+            Assert.That(() => _uut.Connected);
 
         }
         

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.Interface
 {
-    class IDoor
+    public interface IDoor
     {
+        void LockDoor();
+        void UnlockDoor();
+        event DoorOpenEvent();
+        event DoorCloseEvent();
+
     }
+
 }

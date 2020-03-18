@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.Interface
 {
-    class IReader
+    public class ReadtagChangedEventArgs : EventArgs
     {
+        public int tag { get; set; }
+    }
+    public interface IReader
+    {
+        event EventHandler<ReadtagChangedEventArgs> TagDataEvent;
     }
 }

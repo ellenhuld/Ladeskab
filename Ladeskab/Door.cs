@@ -15,12 +15,17 @@ namespace Ladeskab
 
         public void LockDoor(bool state)
         {
-            LockDoorChanged(new DoorOpenTagChargedEventArgs { doorstate = state });
+            LockDoorChanged(new DoorOpenChangedEventArgs { _state = state });
+            State = state;
         }
 
         public void UnlockDoor()
         {
 
+        }
+        protected virtual void LockDoorChanged(DoorOpenChangedEventArgs e)
+        {
+            DoorDataEvent?.Invoke(this, e);
         }
     }
 

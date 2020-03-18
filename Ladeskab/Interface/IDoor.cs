@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.Interface
 {
-    public class DoorOpenTagChargedEventArgs : EventArgs
+    public class DoorOpenChangedEventArgs : EventArgs
     {
-        public bool state { get; set; }
+        public bool _state { get; set; }
     }
 
 
     public interface IDoor
     {
-        event EventHandler<DoorOpenTagChargedEventArgs> DoorDataEvent;
+        event EventHandler<DoorOpenChangedEventArgs> DoorDataEvent;
 
-        void LockDoor();
+        void LockDoor(bool State);
         void UnlockDoor();
-
-
-
     }
 }
 

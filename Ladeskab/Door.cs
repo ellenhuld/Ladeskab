@@ -7,22 +7,18 @@ using Ladeskab.Interface;
 
 namespace Ladeskab
 {
-    class Door:IDoor
+    public class Door:IDoor
     {
-        public void LockDoor()
-        {
+        private bool State;
+        public event EventHandler<DoorOpenChangedEventArgs> DoorDataEvent;
 
+
+        public void LockDoor(bool state)
+        {
+            LockDoorChanged(new DoorOpenTagChargedEventArgs { doorstate = state });
         }
 
         public void UnlockDoor()
-        {
-
-        }
-        public event DoorOpenEvent()
-        {
-
-        }
-        public event DoorCloseEvent()
         {
 
         }

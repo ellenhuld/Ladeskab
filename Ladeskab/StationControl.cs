@@ -8,7 +8,7 @@ using Ladeskab.Interface;
 
 namespace Ladeskab
 {
-    class StationControl
+    public class StationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
         private enum LadeskabState
@@ -20,12 +20,32 @@ namespace Ladeskab
 
         // Her mangler flere member variable
         private LadeskabState _state;
-        private ICharge _charger;
         private int _oldId;
+
+        private IReader _reader { get; set; }
+        private IWriter _writer { get; set; }
+        private IDoor _door { get; set; }
+        private IDisplay _display { get; set; }
+        private ICharge _charge { get; set; }
+
+
 
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
         // Her mangler constructor
+        public StationControl(IReader reader, IWriter writer, IDoor door, IDisplay display, ICharge charge)
+        {
+            _reader = reader;
+            _writer = writer;
+            _door = door;
+            _display = display;
+            _charge = charge;
+        }
+
+        public StationControl()
+        {
+
+        }
 
         // Eksempel på event handler for eventet "RFID Detected" fra tilstandsdiagrammet for klassen
         private void RfidDetected(int id)
@@ -34,10 +54,10 @@ namespace Ladeskab
             {
                 case LadeskabState.Available:
                     // Check for ladeforbindelse
-                    if (_charger.Connected)
+                    if (_charge.Connected)
                     {
                        // _door.LockDoor();
-                        _charger.StartCharge();
+                        _charge.StartCharge();
                         _oldId = id;
                         using (var writer = File.AppendText(logFile))
                         {
@@ -62,7 +82,7 @@ namespace Ladeskab
                     // Check for correct ID
                     if (id == _oldId)
                     {
-                        _charger.StopCharge();
+                        _charge.StopCharge();
                         //_door.UnlockDoor();
                         using (var writer = File.AppendText(logFile))
                         {

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.Interface
 {
-    class IWriter
+    public interface IWriter
     {
+
     }
+
 }

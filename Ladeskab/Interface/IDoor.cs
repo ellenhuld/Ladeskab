@@ -8,16 +8,22 @@ namespace Ladeskab.Interface
 {
     public class DoorOpenChangedEventArgs : EventArgs
     {
-        public bool _state { get; set; }
+        public bool _openstate { get; set; }
     }
 
+    public class DoorCloseChangedEventArgs:EventArgs
+    {
+        public bool _closestate { get; set; }
+    }
 
     public interface IDoor
     {
-        event EventHandler<DoorOpenChangedEventArgs> DoorDataEvent;
+        event EventHandler<DoorOpenChangedEventArgs> DoorOpenEvent;
+
+        event EventHandler<DoorCloseChangedEventArgs> DoorCloseEvent;
 
         void LockDoor(bool State);
-        void UnlockDoor();
+        void UnlockDoor(bool State);
     }
 }
 

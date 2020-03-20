@@ -11,10 +11,10 @@ namespace LadeskabApp
     {
         static void Main(string[] args)
         {
-            
+
             // Assemble your system here from all the classes
-            
-            
+            RFIDReader reader = new RFIDReader();
+            Door door = new Door();
             
             
 
@@ -33,11 +33,11 @@ namespace LadeskabApp
                         break;
 
                     case 'O':
-                        Door.DoorOpen();
+                        door.DoorOpen();
                         break;
 
                     case 'C':
-                        Door.DoorClose();
+                        door.DoorClose();
                         break;
 
                     case 'R':
@@ -45,7 +45,7 @@ namespace LadeskabApp
                         string idString = System.Console.ReadLine();
 
                         int id = Convert.ToInt32(idString);
-                        RFIDReader.OnRfidRead(id);
+                        reader.Readtag(id);
                         break;
 
                     default:

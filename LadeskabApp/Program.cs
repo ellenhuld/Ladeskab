@@ -33,7 +33,7 @@ namespace LadeskabApp
                         break;
 
                     case 'O':
-                        Door.DoorOpen();
+                        Door.DoorOpenEvent();
                         break;
 
                     case 'C':
@@ -45,7 +45,7 @@ namespace LadeskabApp
                         string idString = System.Console.ReadLine();
 
                         int id = Convert.ToInt32(idString);
-                        RFIDReader.OnRfidRead(id);
+                        RFIDReader.ReadTag(id);
                         break;
 
                     default:

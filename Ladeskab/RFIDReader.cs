@@ -9,13 +9,13 @@ namespace Ladeskab
 {
     public class RFIDReader : IReader
     {
-        private int _oldid;
+        private int _oldId;
         public event EventHandler<ReadtagChangedEventArgs> TagDataEvent;
         
         public void Readtag(int id)
         {
             ReadtagChanged(new ReadtagChangedEventArgs { tag = id });
-            _oldid = id;
+            _oldId = id;
         }
         protected virtual void ReadtagChanged(ReadtagChangedEventArgs e)
         {

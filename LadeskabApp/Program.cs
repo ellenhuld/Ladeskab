@@ -15,7 +15,9 @@ namespace LadeskabApp
             // Assemble your system here from all the classes
             RFIDReader reader = new RFIDReader();
             Door door = new Door();
-            
+            Display display = new Display();
+            USBCharger charger = new USBCharger();
+            StationControl stationControl = new StationControl(reader, door, display, charger);
             
 
             bool finish = false;

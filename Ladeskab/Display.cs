@@ -7,7 +7,11 @@ using Ladeskab.Interface;
 
 namespace Ladeskab
 {
-    class Display:IDisplay
+    public class Display:IDisplay
     {
+        public void DisplayMessage(string input)
+        {
+            Console.WriteLine(input);
+        }
     }
 }

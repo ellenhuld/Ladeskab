@@ -56,7 +56,7 @@ namespace Ladeskab
                     // Check for ladeforbindelse
                     if (_charge.Connected)
                     {
-                       // _door.LockDoor();
+                        _door.LockDoor();
                         _charge.StartCharge();
                         _oldId = id;
                         using (var writer = File.AppendText(logFile))
@@ -102,6 +102,16 @@ namespace Ladeskab
         }
 
         // Her mangler de andre trigger handlere
+
+        private void DoorOpen()
+        {
+
+        }
+
+        private void DoorClose()
+        {
+
+        }
     }
 }
 

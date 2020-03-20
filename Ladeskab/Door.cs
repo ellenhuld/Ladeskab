@@ -9,27 +9,36 @@ namespace Ladeskab
 {
     public class Door:IDoor
     {
-        private bool State;
+        private bool _lockState;
         public event EventHandler<DoorOpenChangedEventArgs> DoorOpenEvent;
         public event EventHandler<DoorCloseChangedEventArgs> DoorCloseEvent;
 
 
-        public void LockDoor(bool state)
+        public void LockDoor()
         {
-            LockDoorChanged(new DoorOpenChangedEventArgs { _openstate = state });
-            State = state;
+            _lockState = true;
         }
 
-        public void UnlockDoor(bool state)
+        public void UnlockDoor()
         {
-            UnlockDoorChanged(new DoorCloseChangedEventArgs { _closestate = state });
-            State = state;
+            _lockState = false;
         }
-        protected virtual void LockDoorChanged(DoorOpenChangedEventArgs e)
+        
+
+        public void DoorOpen()
+        {
+            DoorOpenChanged(new DoorOpenChangedEventArgs { _openstate = true });
+        }
+
+        public void DoorClose()
+        {
+            DoorCloseChanged(new DoorCloseChangedEventArgs { _closestate = true });
+        }
+        protected virtual void DoorOpenChanged(DoorOpenChangedEventArgs e)
         {
             DoorOpenEvent?.Invoke(this, e);
         }
-        protected virtual void UnlockDoorChanged(DoorCloseChangedEventArgs e)
+        protected virtual void DoorCloseChanged(DoorCloseChangedEventArgs e)
         {
             DoorCloseEvent?.Invoke(this, e);
         }

@@ -14,17 +14,51 @@ namespace TestUnitLadeskab
     [TestFixture]
     public class TestUnitDoor
     {
-        //private FakeDoor _uut;
-        //private IDoor _door;
+        private Door _uut;
+        private DoorOpenChangedEventArgs _openEventArgs;
+        private DoorCloseChangedEventArgs _closeEventArgs;
 
-        //[SetUp]
-        //public void Setup()
-        //{
-        //    _uut = new FakeDoor();
-        //    _door = Substitute.For<IDoor>();
-        //}
-        
-        //[Test]
-        
+        [SetUp]
+        public void Setup()
+        {
+            _openEventArgs = null;
+            _closeEventArgs = null;
+            _uut = new Door();
+
+            _uut.DoorCloseEvent += (o, args) =>
+            {
+                _closeEventArgs = args;
+            };
+
+            _uut.DoorOpenEvent += (o, args) =>
+            {
+                _openEventArgs = args;
+            };
+        }
+
+        [Test]
+        public void DoorOpen_IsDoorOpen_EventHappens()
+        {
+            _uut.DoorOpen();
+            Assert.That(_openEventArgs._openstate, Is.EqualTo(true));
+        }
+        [Test]
+        public void DoorClose_IsDoorOpen_EventHappens()
+        {
+            _uut.DoorClose();
+            Assert.That(_closeEventArgs._closestate, Is.EqualTo(true));
+        }
+        [Test]
+        public void LockDoor_IsLocked()
+        {
+            _uut.LockDoor();
+            Assert.That(_uut.LockDoor(), Is.EqualTo("Døren er låst"));
+        }
+        [Test]
+        public void UnlockDoor_IsUnlocked()
+        {
+            _uut.UnlockDoor();
+            Assert.That(_uut.UnlockDoor(), Is.EqualTo("Døren er låst op"));
+        }
     }
 }

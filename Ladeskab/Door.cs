@@ -13,15 +13,17 @@ namespace Ladeskab
         public event EventHandler<DoorOpenChangedEventArgs> DoorOpenEvent;
         public event EventHandler<DoorCloseChangedEventArgs> DoorCloseEvent;
 
+        public string _locked = "Døren er låst";
+        public string _unlocked = "Døren er låst op";
 
-        public void LockDoor()
+        public string LockDoor()
         {
-            Console.WriteLine("Døren er låst");
+            return _locked;
         }
 
-        public void UnlockDoor()
+        public string UnlockDoor()
         {
-            Console.WriteLine("Døren er låst op");
+            return _unlocked;
         }
         
 

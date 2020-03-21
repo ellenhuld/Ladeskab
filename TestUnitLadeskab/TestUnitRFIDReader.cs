@@ -23,7 +23,6 @@ namespace TestUnitLadeskab
             _receivedEventArgs = null;
 
             _uut = new RFIDReader();
-            //_uut.Readtag();
 
             _uut.TagDataEvent += (o, args) =>
             {

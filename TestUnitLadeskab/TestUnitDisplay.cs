@@ -14,17 +14,17 @@ namespace TestUnitLadeskab
     [TestFixture]
     public class TestUnitDisplay
     {
-        //private Display _uut;
-        //private IDisplay _display;
+        private Display _uut;
+        private IDisplay _display;
 
-        //[SetUp]
-        //public void Setup()
-        //{
-        //    _uut = new Display();
-        //    _display = Substitute.For<IDisplay>();
-        //}
+        [SetUp]
+        public void Setup()
+        {
+            _uut = new Display();
+            _display = Substitute.For<IDisplay>();
+        }
 
-        //[Test]
+        [Test]
 
     }
 }

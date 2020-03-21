@@ -24,7 +24,7 @@ namespace TestUnitLadeskab
             _display = Substitute.For<IDisplay>();
         }
 
-        [Test]
+        //[Test]
 
     }
 }

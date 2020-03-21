@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace TestUnitLadeskab
 {
     [TestFixture]
-    public class TestLedeskab
+    public class TestLadeskab
     {
         private  USBCharger _uut;
         private ICharge _charge;

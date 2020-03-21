@@ -57,8 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestLedeskab.cs" />
+    <Compile Include="FakeClasses\FakeDoor.cs" />
+    <Compile Include="FakeClasses\FakeRFIDReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestLadeskab.cs" />
+    <Compile Include="TestUnitDoor.cs" />
+    <Compile Include="TestUnitRFIDReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -69,6 +73,7 @@
       <Name>Ladeskab</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

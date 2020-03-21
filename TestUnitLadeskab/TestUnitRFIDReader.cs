@@ -36,5 +36,11 @@ namespace TestUnitLadeskab
             _uut.Readtag(23);
             Assert.That(_receivedEventArgs, Is.Not.Null);
         }
+        [Test]
+        public void Readtag_ReadtagToNewValue_CorrectNewTag()
+        {
+            _uut.Readtag(25);
+            Assert.That(_receivedEventArgs.tag, Is.EqualTo(25));
+        }
     }
 }

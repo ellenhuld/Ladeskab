@@ -14,17 +14,26 @@ namespace TestUnitLadeskab
     [TestFixture]
     public class TestUnitDisplay
     {
-        //private Display _uut;
-        //private IDisplay _display;
+        private Display _uut;
+        private Door _door;
 
-        //[SetUp]
-        //public void Setup()
-        //{
-        //    _uut = new Display();
-        //    _display = Substitute.For<IDisplay>();
-        //}
+        [SetUp]
+        public void Setup()
+        {
+            _uut = new Display();
+            _door = new Door();
+        }
 
-        //[Test]
+        [TestCase("Døren er låst")]
+        [TestCase("Døren er låst op")]
+        public void Display_Message_Recived(string input)
+        {  
+            string s1 = _door.LockDoor();
+            string s2 = _door.UnlockDoor();
+            Assert.That(input, Is.EqualTo(s1));
+        }
+
+       // [TestCase("Døren er låst]")]
 
     }
 }

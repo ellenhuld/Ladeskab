@@ -9,19 +9,19 @@ namespace Ladeskab
 {
     public class Door:IDoor
     {
-        private bool _lockState;
+
         public event EventHandler<DoorOpenChangedEventArgs> DoorOpenEvent;
         public event EventHandler<DoorCloseChangedEventArgs> DoorCloseEvent;
 
 
         public void LockDoor()
         {
-            _lockState = true;
+            Console.WriteLine("Døren er låst");
         }
 
         public void UnlockDoor()
         {
-            _lockState = false;
+            Console.WriteLine("Døren er låst op");
         }
         
 

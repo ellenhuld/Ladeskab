@@ -8,5 +8,6 @@ namespace Ladeskab.Interface
 {
     public interface IDisplay
     {
+        void DisplayMessage(string input);
     }
 }

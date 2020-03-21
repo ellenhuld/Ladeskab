@@ -9,22 +9,21 @@ using NSubstitute;
 using NUnit.Framework;
 using TestUnitLadeskab.FakeClasses;
 
-namespace TestUnitLadeskab
+namespace TestUnitLadeskab.FakeClasses
 {
     [TestFixture]
-    public class TestUnitDoor
+    public class TestUnitStationControl
     {
-        //private FakeDoor _uut;
-        //private IDoor _door;
+        //private StationControl _uut;
+
+
 
         //[SetUp]
         //public void Setup()
         //{
-        //    _uut = new FakeDoor();
-        //    _door = Substitute.For<IDoor>();
+        //    _uut = new StationControl();
         //}
-        
+
         //[Test]
-        
     }
 }

@@ -12,19 +12,19 @@ using TestUnitLadeskab.FakeClasses;
 namespace TestUnitLadeskab
 {
     [TestFixture]
-    public class TestUnitDoor
+    public class TestUnitDisplay
     {
-        //private FakeDoor _uut;
-        //private IDoor _door;
+        //private Display _uut;
+        //private IDisplay _display;
 
         //[SetUp]
         //public void Setup()
         //{
-        //    _uut = new FakeDoor();
-        //    _door = Substitute.For<IDoor>();
+        //    _uut = new Display();
+        //    _display = Substitute.For<IDisplay>();
         //}
-        
+
         //[Test]
-        
+
     }
 }

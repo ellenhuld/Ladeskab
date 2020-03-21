@@ -18,7 +18,7 @@ namespace TestUnitLadeskab
 
         [SetUp]
         public void Setup()
-        {
+        { 
             _uut = new USBCharger();
             _charge = Substitute.For<ICharge>();
         }

@@ -66,6 +66,7 @@
     <Compile Include="FakeClasses\FakeDisplay.cs" />
     <Compile Include="FakeClasses\FakeDoor.cs" />
     <Compile Include="FakeClasses\FakeRFIDReader.cs" />
+    <Compile Include="TestChargeControl.cs" />
     <Compile Include="TestUnitStationControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestLadeskab.cs" />

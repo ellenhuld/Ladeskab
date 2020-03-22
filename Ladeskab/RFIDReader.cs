@@ -14,7 +14,7 @@ namespace Ladeskab
         
         public void Readtag(int id)
         {
-            ReadtagChanged(new ReadtagChangedEventArgs { tag = id });
+            ReadtagChanged(new ReadtagChangedEventArgs { Tag = id });
             _oldId = id;
         }
         protected virtual void ReadtagChanged(ReadtagChangedEventArgs e)

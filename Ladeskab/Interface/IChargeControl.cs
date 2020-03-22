@@ -9,6 +9,6 @@ namespace Ladeskab.Interface
     public interface IChargeControl 
     {
         void Regulate();
-        bool IsConnected(bool connect);
+        bool IsConnected();
     }
 }

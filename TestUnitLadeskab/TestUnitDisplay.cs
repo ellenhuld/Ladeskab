@@ -25,15 +25,17 @@ namespace TestUnitLadeskab
         }
 
         [TestCase("Døren er låst")]
-        [TestCase("Døren er låst op")]
-        public void Display_Message_Recived(string input)
+        public void Display_Message_Recived_LockDoor(string input)
         {  
             string s1 = _door.LockDoor();
-            string s2 = _door.UnlockDoor();
             Assert.That(input, Is.EqualTo(s1));
         }
-
-       // [TestCase("Døren er låst]")]
-
+        
+        [TestCase("Døren er låst op")]
+        public void Display_Message_Recived_UnlockDoor(string input)
+        {
+            string s1 = _door.UnlockDoor();
+            Assert.That(input, Is.EqualTo(s1));
+        }
     }
 }

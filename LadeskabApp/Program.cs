@@ -11,13 +11,15 @@ namespace LadeskabApp
     {
         static void Main(string[] args)
         {
-
             // Assemble your system here from all the classes
             RFIDReader reader = new RFIDReader();
             Door door = new Door();
             Display display = new Display();
             USBCharger charger = new USBCharger();
-            StationControl stationControl = new StationControl(reader, door, display, charger);
+
+            ChargeControl chargecontrol = new ChargeControl(charger);
+            
+            StationControl stationControl = new StationControl(reader, door, display, chargecontrol);
             
 
             bool finish = false;
@@ -48,6 +50,14 @@ namespace LadeskabApp
 
                         int id = Convert.ToInt32(idString);
                         reader.Readtag(id);
+                        break;
+                    case 'T':
+                        System.Console.WriteLine("Forbundet");
+                        charger.Connected = true;
+                        break;
+                    case 'F':
+                        System.Console.WriteLine("Ikke forbundet");
+                        charger.Connected = false;
                         break;
 
                     default:

@@ -16,13 +16,12 @@ namespace TestUnitLadeskab
     {
         private ChargeControl _uut;
         private ICharge _charge;
-        private int threshold;
 
         [SetUp]
         public void SetUp()
         {
             _charge = Substitute.For<ICharge>();
-            _uut = new ChargeControl(threshold, _charge);
+            _uut = new ChargeControl(_charge);
         }
 
         [TestCase(500)]

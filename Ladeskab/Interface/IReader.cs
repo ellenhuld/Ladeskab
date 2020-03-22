@@ -8,7 +8,7 @@ namespace Ladeskab.Interface
 {
     public class ReadtagChangedEventArgs : EventArgs
     {
-        public int tag { get; set; }
+        public int Tag { get; set; }
     }
     public interface IReader
     {

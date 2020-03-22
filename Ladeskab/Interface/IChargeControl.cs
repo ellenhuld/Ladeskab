@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.Interface
 {
-    public class IChargeControl 
+    public interface IChargeControl 
     {
+        void Regulate();
+        bool IsConnected(bool connect);
     }
 }

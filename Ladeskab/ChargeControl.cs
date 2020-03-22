@@ -10,34 +10,37 @@ namespace Ladeskab
     public class ChargeControl : IChargeControl
     {
         public double CurrentCharge { get; set;}
-        private int _threshold;
-        private IChargeControl _chargeControl;
-        private ICharge charge;
+        private ICharge _charge;
+        private int _thresholdLow = 500;
+        private int _thresholdHigh = 5;
 
 
-        public ChargeControl(int threshold, ICharge charge)//, IChargeControl chargeControl)
+        public ChargeControl(ICharge charge)
         { 
             charge.CurrentValueEvent += (sender, e) => HandleCurrentValueEvent(sender, e);
-            _threshold = threshold;
-            //_chargeControl = chargeControl;
+            _charge = charge;
         }
 
         private void HandleCurrentValueEvent(object sender, CurrentEventArgs e)
         {
             CurrentCharge = e.Current;
-            Regulate();
         }
-
-        private void Regulate()
+        
+        public void Regulate()
         {
-            if (CurrentCharge < _threshold)
+            if (CurrentCharge > _thresholdLow && CurrentCharge <= _thresholdHigh)
             {
-                charge.StartCharge();
+                _charge.StartCharge();
             }
             else
             {
-                charge.StopCharge();
+                _charge.StopCharge();
             }
+        }
+        public bool IsConnected(bool connect)
+        {
+            connect = _charge.Connected;
+            return connect;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Ladeskab
 
         public double CurrentValue { get; private set; }
 
-        public bool Connected { get; private set; }
+        public bool Connected { get; set; }
 
         private bool _overload;
         private bool _charging;
@@ -112,12 +112,12 @@ namespace Ladeskab
             _charging = false;
         }
 
-        private void OnNewCurrent()
+        protected virtual void OnNewCurrent()
         //public void OnCurrentChanged(CurrentEventArgs e)
-        { 
+        {
             CurrentValueEvent?.Invoke(this, new CurrentEventArgs() { Current = this.CurrentValue });
 
-            //CurrentEvent?.Invoke(this, e);
+            //CurrentValueEvent?.Invoke(this, e);
         }
     }
 

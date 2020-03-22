@@ -27,6 +27,8 @@ namespace Ladeskab.Interface
         void StartCharge();
         // Stop charging
         void StopCharge();
+
+
     }
 
 }

@@ -15,27 +15,22 @@ namespace TestUnitLadeskab
     public class TestUnitDisplay
     {
         private Display _uut;
-        private Door _door;
+        private IDisplay _iDisplay;
 
         [SetUp]
         public void Setup()
         {
             _uut = new Display();
-            _door = new Door();
+            _iDisplay = Substitute.For<IDisplay>();
         }
 
-        //[TestCase("Døren er låst")]
-        //public void Display_Message_Recived_LockDoor(string input)
-        //{  
-        //    string s1 = _door.LockDoor();
-        //    Assert.That(input, Is.EqualTo(s1));
-        //}
+        [Test]
+        public void Display_Message_Recived()
+        {
+            _iDisplay.DisplayMessage("Døren er låst op");
+            _iDisplay.Received().DisplayMessage("Døren er låst op");
+        }
+
         
-        //[TestCase("Døren er låst op")]
-        //public void Display_Message_Recived_UnlockDoor(string input)
-        //{
-        //    string s1 = _door.UnlockDoor();
-        //    Assert.That(input, Is.EqualTo(s1));
-        //}
     }
 }

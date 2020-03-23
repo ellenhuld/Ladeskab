@@ -104,7 +104,7 @@ namespace TestUnitLadeskab.FakeClasses
             _iDoor.Received().UnlockDoor();
             _iDisplay.Received().DisplayMessage("Døren er låst op");
 
-
+            _iDisplay.Received().DisplayMessage("Tag din telefon ud af skabet og luk døren");
         }
 
         [Test]

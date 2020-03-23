@@ -24,21 +24,18 @@ namespace TestUnitLadeskab
             _door = new Door();
         }
 
-
         [TestCase("Døren er låst")]
-        public void Display_Message_LockDoor(string input)
-        {
+        public void Display_Message_Recived_LockDoor(string input)
+        {  
             string s1 = _door.LockDoor();
             Assert.That(input, Is.EqualTo(s1));
         }
+        
         [TestCase("Døren er låst op")]
-        public void Display_Message_UnlockDoor(string input)
+        public void Display_Message_Recived_UnlockDoor(string input)
         {
             string s1 = _door.UnlockDoor();
             Assert.That(input, Is.EqualTo(s1));
         }
-
-
-
     }
 }

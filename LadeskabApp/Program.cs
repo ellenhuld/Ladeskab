@@ -26,7 +26,7 @@ namespace LadeskabApp
             do
             {
                 string input;
-                System.Console.WriteLine("Indtast E, O, C, R: ");
+                System.Console.WriteLine("Indtast E (exit), O (open door), C (close door), R (rfid id), T (mobil tilsluttet), F (mobil fjernet): ");
                 input = Console.ReadLine();
                 if (string.IsNullOrEmpty(input)) continue;
 
@@ -52,12 +52,12 @@ namespace LadeskabApp
                         reader.Readtag(id);
                         break;
                     case 'T':
-                        System.Console.WriteLine("Forbundet");
-                        charger.Connected = true;
+                        System.Console.WriteLine("Mobiltelefon forbundet");
+                        charger.SimulateConnected(true);
                         break;
                     case 'F':
-                        System.Console.WriteLine("Ikke forbundet");
-                        charger.Connected = false;
+                        System.Console.WriteLine("Mobiltelefon ikke forbundet");
+                        charger.SimulateConnected(false);
                         break;
 
                     default:

@@ -37,10 +37,9 @@ namespace Ladeskab
                 _charge.StopCharge();
             }
         }
-        public bool IsConnected(bool connect)
+        public bool IsConnected()
         {
-            connect = _charge.Connected;
-            return connect;
+            return _charge.Connected;
         }
     }
 }

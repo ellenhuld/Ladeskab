@@ -67,7 +67,7 @@ namespace Ladeskab
             {
                 case LadeskabState.Available:
                     // Check for ladeforbindelse
-                    if (_chargeControl.IsConnected(true))
+                    if (_chargeControl.IsConnected()==true)
                     {
                         _display.DisplayMessage(_door.LockDoor());
                         _chargeControl.Regulate();

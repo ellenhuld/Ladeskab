@@ -9,7 +9,7 @@ using NSubstitute;
 using NUnit.Framework;
 using TestUnitLadeskab.FakeClasses;
 
-namespace TestUnitLadeskab.FakeClasses
+namespace TestUnitLadeskab
 {
     [TestFixture]
     public class TestUnitStationControl

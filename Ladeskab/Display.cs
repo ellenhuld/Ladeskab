@@ -9,20 +9,21 @@ namespace Ladeskab
 {
     public class Display:IDisplay
     {
-        private string _message;
-        public Display(string input)
-        {
-            _message = input;
-        }
+        //private string _message;
+        //public Display(string input)
+        //{
+        //    _message = input;
+        //}
 
-        public string GetMessage()
-        {
-            return _message;
-        }
+        //public string GetMessage()
+        //{
+        //    return _message;
+        //}
 
-        public void DisplayMessage()
+
+        public void DisplayMessage(string input)
         {
-            Console.WriteLine(_message);
+            Console.WriteLine(input);
         }
     }
 }

@@ -11,8 +11,8 @@ namespace Ladeskab
     {
         public double CurrentCharge { get; set;}
         private ICharge _charge;
-        private int _thresholdLow = 500;
-        private int _thresholdHigh = 5;
+        private int _thresholdLow = 5;
+        private int _thresholdHigh = 500;
 
 
         public ChargeControl(ICharge charge)

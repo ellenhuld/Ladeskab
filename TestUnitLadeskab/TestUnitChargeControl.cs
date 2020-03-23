@@ -17,14 +17,12 @@ namespace TestUnitLadeskab
     {
         private ChargeControl _uut;
         private ICharge _charge;
-        private USBCharger _usbcharger;
 
         [SetUp]
         public void SetUp()
         {
             _charge = Substitute.For<ICharge>();
             _uut = new ChargeControl(_charge);
-            _usbcharger = new USBCharger();
         }
 
         [TestCase(500)]
@@ -36,43 +34,37 @@ namespace TestUnitLadeskab
             Assert.That(_uut.CurrentCharge, Is.EqualTo(newCurrent));
         }
 
-        //[TestCase(500)]
-        //[TestCase(2)]
-        //[TestCase(0.0)]
-        //public void Regulate_StartCharge_IsTrue()
-        //{
-        //    double current = _charge.StartCharge();
-        //    Assert.That(_charge.StartCharge, Is.EqualTo(current));
+        [TestCase(500)]
+        [TestCase(6)]
+        [TestCase(255)]
+        public void Regulate_StartChargeCalled(double currentCharge)
+        {
+            _uut.CurrentCharge = currentCharge;
+            _uut.Regulate();
+            _charge.Received().StartCharge();
+        }
 
-        //}
-
-
-        //[Test]
-        //public void Regulate_StopCharge_IsFalse(int current, int threshold)
-        //{
-            
-        //    Assert.That(_uut.Regulate(), Is.EqualTo(_charge.StopCharge()));
-        //}
-
-        //[Test]
-        //public void Regulate_StopCharge_IsFalse()
-        //{
-        //    _charge.StopCharge();
-        //    Assert.That(Stop, Is.Not.Null);
-        //}
-
+        [TestCase(501)]
+        [TestCase(5)]
+        [TestCase(-5)]
+        public void Regulate_StopChargeCalled(double currentCharge)
+        {
+            _uut.CurrentCharge = currentCharge;
+            _uut.Regulate();
+            _charge.Received().StopCharge();
+        }
 
         [Test]
         public void IsConnected_USBCharger_IsConnectedTrue()
         {
-            _usbcharger.SimulateConnected(true);
+            _charge.Connected.Returns(true);
             Assert.That(_uut.IsConnected(), Is.EqualTo(true));
         }
 
         [Test]
         public void IsConnected_USBCharger_IsConnectedFalse()
         {
-            _usbcharger.SimulateConnected(false);
+            _charge.Connected.Returns(false);
             Assert.That(_uut.IsConnected(), Is.EqualTo(false));
         }
     }

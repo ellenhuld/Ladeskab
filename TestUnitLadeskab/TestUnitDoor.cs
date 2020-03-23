@@ -17,12 +17,14 @@ namespace TestUnitLadeskab
         private Door _uut;
         private DoorOpenChangedEventArgs _openEventArgs;
         private DoorCloseChangedEventArgs _closeEventArgs;
+        private IDoor _door;
 
         [SetUp]
         public void Setup()
         {
             _openEventArgs = null;
             _closeEventArgs = null;
+            _door = Substitute.For<IDoor>();
             _uut = new Door();
 
             _uut.DoorCloseEvent += (o, args) =>
@@ -48,17 +50,20 @@ namespace TestUnitLadeskab
             _uut.DoorClose();
             Assert.That(_closeEventArgs._closestate, Is.EqualTo(true));
         }
-        [Test]
-        public void LockDoor_IsLocked()
-        {
-            _uut.LockDoor();
-            Assert.That(_uut.LockDoor(), Is.EqualTo("Døren er låst"));
-        }
-        [Test]
-        public void UnlockDoor_IsUnlocked()
-        {
-            _uut.UnlockDoor();
-            Assert.That(_uut.UnlockDoor(), Is.EqualTo("Døren er låst op"));
-        }
+        //[TestCase(true)]
+        //public void LockDoor_IsLocked(bool state)
+        //{
+            
+        //    _door.Received(state);
+        //    _uut.LockDoor();
+
+
+        //}
+        //[Test]
+        //public void UnlockDoor_IsUnlocked()
+        //{
+        //    _uut.UnlockDoor();
+        //    Assert.That(_uut.UnlockDoor(), Is.EqualTo());
+        //}
     }
 }

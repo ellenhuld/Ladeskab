@@ -69,7 +69,8 @@ namespace Ladeskab
                     // Check for ladeforbindelse
                     if (_chargeControl.IsConnected()==true)
                     {
-                        _display.DisplayMessage(_door.LockDoor());
+                        _door.LockDoor();
+                        _display.DisplayMessage("Døren er låst");
                         _chargeControl.Regulate();
                         _oldId = id;
                         using (var writer = File.AppendText(logFile))
@@ -95,10 +96,11 @@ namespace Ladeskab
 
                 case LadeskabState.Locked:
                     // Check for correct ID
-                    if (id == _oldId)
+                    if (CheckId(_oldId, id))
                     {
                         _chargeControl.Regulate();
-                        _display.DisplayMessage(_door.UnlockDoor());
+                        _door.UnlockDoor();
+                        _display.DisplayMessage("Døren er låst op");
                         using (var writer = File.AppendText(logFile))
                         {
                             writer.WriteLine(DateTime.Now + ": Skab låst op med RFID: {0}", id);
@@ -116,6 +118,11 @@ namespace Ladeskab
 
                     break;
             }
+        }
+
+        private bool CheckId(int oldId, int id)
+        {
+            return oldId == id;
         }
 
         // Her mangler de andre trigger handlere

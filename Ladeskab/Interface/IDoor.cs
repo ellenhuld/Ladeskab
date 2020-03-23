@@ -22,8 +22,8 @@ namespace Ladeskab.Interface
 
         event EventHandler<DoorCloseChangedEventArgs> DoorCloseEvent;
 
-        string LockDoor();
-        string UnlockDoor();
+        void LockDoor();
+        void UnlockDoor();
         void DoorOpen();
         void DoorClose();
     }

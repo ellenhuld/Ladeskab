@@ -82,7 +82,7 @@ namespace TestUnitLadeskab
             var id = 12;
             _iChargeControl.IsConnected().Returns(false);
             _iReader.TagDataEvent += Raise.EventWith(new ReadtagChangedEventArgs() { Tag = id });
-            _iDisplay.Received().DisplayMessage("Din telefon er ikke ordentlig tilsluttet. Prøv igen.");
+            _iDisplay.Received().DisplayMessage("Tilslutningsfejl. Prøv igen");
         }
         
         [Test]

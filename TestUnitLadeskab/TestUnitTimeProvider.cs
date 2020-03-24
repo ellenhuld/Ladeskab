@@ -14,8 +14,6 @@ namespace TestUnitLadeskab
     public class TestUnitTimeProvider
     {
         private TimeProvider _uut;
-        private ITimeProvider itimeProvider;
-
 
         [SetUp]
         public void SetUp()

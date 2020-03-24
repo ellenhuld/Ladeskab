@@ -11,7 +11,6 @@ namespace Ladeskab
     {
         private int _oldId;
         
-        //public int Tag { get; set; }
 
         public event EventHandler<ReadtagChangedEventArgs> TagDataEvent;
 

@@ -14,10 +14,8 @@ namespace TestUnitLadeskab
     public class TestUnitLogfile
     {
         private LogFile _uut;
-        private IReader ireader;
         private IFileWriter ifilewriter;
         private ITimeProvider itimeProvider;
-
 
         [SetUp]
         public void SetUp()
@@ -26,7 +24,6 @@ namespace TestUnitLadeskab
             itimeProvider = Substitute.For<ITimeProvider>();
 
             _uut = new LogFile(ifilewriter, itimeProvider);
-
         }
 
         [Test]

@@ -25,13 +25,8 @@ namespace Ladeskab
         private IReader _reader { get; set; }
         private IDoor _door { get; set; }
         private IDisplay _display { get; set; }
-        //private ICharge _charge { get; set; }
         private IChargeControl _chargeControl { get; set; }
         private ILogfile _logFile { get; set; }
-
-        //public bool door { get; set; }
-
-        private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
         // Her mangler constructor
         public StationControl(IReader reader, IDoor door, IDisplay display, IChargeControl chargecontrol, ILogfile logfile)
@@ -121,7 +116,6 @@ namespace Ladeskab
             switch (_state)
             {
                 case LadeskabState.DoorOpen:
-                    //door = e._closestate;
                     _state = LadeskabState.Available;
                     _display.DisplayMessage("Indlæs RFID");
                     break;
@@ -138,7 +132,6 @@ namespace Ladeskab
             switch (_state)
             {
                 case LadeskabState.Available:
-                    //door = e._openstate;
                     _state = LadeskabState.DoorOpen;
                     _display.DisplayMessage("Tilslut telefon");
                     break;

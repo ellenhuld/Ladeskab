@@ -10,15 +10,7 @@ namespace Ladeskab
 {
     public class FileWriter : IFileWriter
     {
-        //private string _fileWriter;
-        //private IFileWriter _fileWriter;
 
-        
-        //public FileWriter(IFileWriter fileWriter)
-        public FileWriter()
-        {
-            //_fileWriter = fileWriter;
-        }
 
         public void WriteLine(string line)
         {

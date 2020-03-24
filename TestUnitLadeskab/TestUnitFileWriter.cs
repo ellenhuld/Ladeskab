@@ -14,17 +14,11 @@ namespace TestUnitLadeskab
     public class TestUnitFileWriter
     {
         private FileWriter _uut;
-        private IFileWriter ifileWriter;
-        private string _fileWriter;
 
         [SetUp]
         public void SetUp()
         {
-            //ifileWriter = Substitute.For<IFileWriter>();
-            //_uut = new FileWriter(_fileWriter);
-
             _uut = new FileWriter();
-
         }
 
         [Test]

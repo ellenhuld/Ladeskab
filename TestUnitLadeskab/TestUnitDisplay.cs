@@ -15,7 +15,6 @@ namespace TestUnitLadeskab
     public class TestUnitDisplay
     {
         private Display _uut;
-        private IDisplay _iDisplay;
         private IConsoleWrite _iWrite;
 
         [SetUp]
@@ -23,17 +22,13 @@ namespace TestUnitLadeskab
         {
             _iWrite = Substitute.For<IConsoleWrite>();
             _uut = new Display(_iWrite);
-            //_iDisplay = Substitute.For<IDisplay>();
-            
         }
          
         [Test]
         public void Display_Message_Recived()
         {
-
             _uut.DisplayMessage("Døren er låst op");
             _iWrite.Received(1).WriteLine(Arg.Is<string>(s=> s.Contains($"Døren er låst op")));
-            //_iWrite.Received().WriteLine(Arg.Any<string>());
         }
 
         

@@ -63,11 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestUnitConsoleWrite.cs" />
     <Compile Include="FakeClasses\FakeDisplay.cs" />
     <Compile Include="FakeClasses\FakeDoor.cs" />
     <Compile Include="FakeClasses\FakeRFIDReader.cs" />
     <Compile Include="TestUnitChargeControl.cs" />
-    <Compile Include="TestUnitConsoleWrite.cs" />
     <Compile Include="TestUnitFileWriter.cs" />
     <Compile Include="TestUnitLogfile.cs" />
     <Compile Include="TestUnitStationControl.cs" />

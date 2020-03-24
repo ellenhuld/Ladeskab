@@ -13,20 +13,18 @@ namespace Ladeskab
         public event EventHandler<DoorOpenChangedEventArgs> DoorOpenEvent;
         public event EventHandler<DoorCloseChangedEventArgs> DoorCloseEvent;
 
-        //public string _locked = "Døren er låst";
-        //public string _unlocked = "Døren er låst op";
-        //private bool _locked = 0;
-
-        public void LockDoor()
+        private bool _locked;
+        
+        public bool LockDoor()
         {
-            //_locked = true;
-            //return _locked; 
-            // Do nothing in this implementation
+            _locked = true;
+            return _locked; 
         }
 
-        public void UnlockDoor()
+        public bool UnlockDoor()
         {
-            // Do nothing in this implementation
+            _locked = false;
+            return _locked;
         }
         
         public void DoorOpen()

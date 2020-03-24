@@ -50,6 +50,7 @@ namespace TestUnitLadeskab
             _uut.DoorClose();
             Assert.That(_closeEventArgs._closestate, Is.EqualTo(true));
         }
+
         //[TestCase(true)]
         //public void LockDoor_IsLocked(bool state)
         //{

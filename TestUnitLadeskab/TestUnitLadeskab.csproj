@@ -67,6 +67,8 @@
     <Compile Include="FakeClasses\FakeDoor.cs" />
     <Compile Include="FakeClasses\FakeRFIDReader.cs" />
     <Compile Include="TestUnitChargeControl.cs" />
+    <Compile Include="TestUnitConsoleWrite.cs" />
+    <Compile Include="TestUnitFileWriter.cs" />
     <Compile Include="TestUnitLogfile.cs" />
     <Compile Include="TestUnitStationControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="TestUnitDisplay.cs" />
     <Compile Include="TestUnitDoor.cs" />
     <Compile Include="TestUnitRFIDReader.cs" />
+    <Compile Include="TestUnitTimeProvider.cs" />
     <Compile Include="TestUnitUSBCharger.cs" />
   </ItemGroup>
   <ItemGroup>

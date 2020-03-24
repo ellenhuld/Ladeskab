@@ -10,7 +10,11 @@ namespace Ladeskab
     public class RFIDReader : IReader
     {
         private int _oldId;
+        
+        public int Tag { get; set; }
+
         public event EventHandler<ReadtagChangedEventArgs> TagDataEvent;
+
         
         public void Readtag(int id)
         {

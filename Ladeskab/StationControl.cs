@@ -20,7 +20,7 @@ namespace Ladeskab
 
         // Her mangler flere member variable
         private LadeskabState _state;
-        private int _oldId;
+        public int _oldId { set; get; }
 
         private IReader _reader { get; set; }
         private IDoor _door { get; set; }
@@ -79,7 +79,7 @@ namespace Ladeskab
                             Console.WriteLine(DateTime.Now + ": Skab låst med RFID: {0}", id);
                         }
                         //test om der indlæst i tekst fil
-                        //File.ReadAllText(logFile);
+                        File.ReadAllText(logFile);
                         _display.DisplayMessage("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
                         _state = LadeskabState.Locked;
                     }
@@ -107,7 +107,7 @@ namespace Ladeskab
                             Console.WriteLine(DateTime.Now + ": Skab låst op med RFID: {0}", id);
                         }
                         //Test om der er blevet indlæst til logfil
-                        //File.ReadAllText(logFile);
+                        File.ReadAllText(logFile);
                         _display.DisplayMessage("Tag din telefon ud af skabet og luk døren");
                         _state = LadeskabState.Available;
                     }

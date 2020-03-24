@@ -103,7 +103,7 @@ namespace TestUnitLadeskab
             _iChargeControl.Received().Regulate();
             _iDoor.Received().UnlockDoor();
             _iDisplay.Received().DisplayMessage("Døren er låst op");
-
+            
             _iDisplay.Received().DisplayMessage("Tag din telefon ud af skabet og luk døren");
         }
 
@@ -114,6 +114,8 @@ namespace TestUnitLadeskab
             _iChargeControl.IsConnected().Returns(true);
             _iReader.TagDataEvent += Raise.EventWith(new ReadtagChangedEventArgs() { Tag = id });
             _iReader.TagDataEvent += Raise.EventWith(new ReadtagChangedEventArgs() { Tag = 13 });
+            _iChargeControl.Received().Regulate();
+            _iDoor.Received().LockDoor();
             _iDisplay.Received().DisplayMessage("Forkert RFID tag");
         }
 

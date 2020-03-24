@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Ladeskab;
+using Ladeskab.Interface;
 
 namespace LadeskabApp
 {
@@ -14,7 +16,8 @@ namespace LadeskabApp
             // Assemble your system here from all the classes
             RFIDReader reader = new RFIDReader();
             Door door = new Door();
-            Display display = new Display();
+            IConsoleWrite iWrite = new ConsoleWrite();
+            Display display = new Display(iWrite);
             USBCharger charger = new USBCharger();
 
             ChargeControl chargecontrol = new ChargeControl(charger);

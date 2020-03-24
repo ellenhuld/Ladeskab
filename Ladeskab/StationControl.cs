@@ -76,7 +76,7 @@ namespace Ladeskab
                     }
                     else
                     {
-                        _display.DisplayMessage("Din telefon er ikke ordentlig tilsluttet. Prøv igen.");
+                        _display.DisplayMessage("Tilslutningsfejl. Prøv igen");
                     }
 
                     break;

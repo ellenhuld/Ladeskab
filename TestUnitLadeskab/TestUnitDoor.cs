@@ -55,15 +55,14 @@ namespace TestUnitLadeskab
         public void LockDoor_IsLocked()
         {
             _uut.LockDoor();
-            _door.Received().LockDoor();
             Assert.That(_uut.LockDoor(), Is.EqualTo(true));
         }
 
-        //[Test]
-        //public void UnlockDoor_IsUnlocked()
-        //{
-        //    _uut.UnlockDoor();
-        //    Assert.That(_uut.UnlockDoor(), Is.EqualTo());
-        //}
+        [Test]
+        public void UnlockDoor_IsUnlocked()
+        {
+            _uut.UnlockDoor();
+            Assert.That(_uut.UnlockDoor(), Is.EqualTo(false));
+        }
     }
 }

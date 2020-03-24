@@ -27,10 +27,9 @@ namespace TestUnitLadeskab
         [Test]
         public void Display_Message_Recived()
         {
-            _iDisplay.DisplayMessage("Døren er låst op");
             _iDisplay.Received().DisplayMessage("Døren er låst op");
+            _uut.DisplayMessage("Døren er låst op");
         }
 
-        
     }
 }

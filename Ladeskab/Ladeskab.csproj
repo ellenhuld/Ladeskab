@@ -48,16 +48,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChargeControl.cs" />
+    <Compile Include="ConsoleWrite.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Door.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="Interface\ICharge.cs" />
     <Compile Include="Interface\IChargeControl.cs" />
+    <Compile Include="Interface\IConsoleWrite.cs" />
     <Compile Include="Interface\IDisplay.cs" />
     <Compile Include="Interface\IDoor.cs" />
+    <Compile Include="Interface\IFileWriter.cs" />
+    <Compile Include="Interface\ILogfile.cs" />
     <Compile Include="Interface\IReader.cs" />
+    <Compile Include="Interface\ITimeProvider.cs" />
+    <Compile Include="Logfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RFIDReader.cs" />
     <Compile Include="StationControl.cs" />
+    <Compile Include="TimeProvider.cs" />
     <Compile Include="USBCharger.cs" />
   </ItemGroup>
   <ItemGroup>

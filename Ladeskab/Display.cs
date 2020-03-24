@@ -9,11 +9,16 @@ namespace Ladeskab
 {
     public class Display:IDisplay
     {
-        //private string _message;
-        //public Display(string input)
-        //{
-        //    _message = input;
-        //}
+        //private IDisplay _display;
+
+        private IConsoleWrite _write;
+
+        //property injection
+        //public Display(IDisplay display)
+        public Display(IConsoleWrite write)
+        {
+            _write = write;
+        }
 
         //public string GetMessage()
         //{
@@ -23,7 +28,8 @@ namespace Ladeskab
 
         public void DisplayMessage(string input)
         {
-            Console.WriteLine(input);
+            _write.WriteLine(input);
+            //Console.WriteLine(input);
         }
     }
 }

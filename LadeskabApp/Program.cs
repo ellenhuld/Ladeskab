@@ -20,9 +20,13 @@ namespace LadeskabApp
             Display display = new Display(iWrite);
             USBCharger charger = new USBCharger();
 
+            TimeProvider timeprovider = new TimeProvider();
+            FileWriter filewriter = new FileWriter();
+            LogFile logfile = new LogFile(filewriter, timeprovider);
+
             ChargeControl chargecontrol = new ChargeControl(charger);
             
-            StationControl stationControl = new StationControl(reader, door, display, chargecontrol);
+            StationControl stationControl = new StationControl(reader, door, display, chargecontrol, logfile);
             
 
             bool finish = false;

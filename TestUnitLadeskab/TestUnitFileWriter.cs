@@ -23,7 +23,7 @@ namespace TestUnitLadeskab
             //ifileWriter = Substitute.For<IFileWriter>();
             //_uut = new FileWriter(_fileWriter);
 
-            _uut = new FileWriter("LogFile.txt");
+            _uut = new FileWriter();
 
         }
 

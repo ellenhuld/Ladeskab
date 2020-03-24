@@ -20,10 +20,7 @@ namespace TestUnitLadeskab
         [SetUp]
         public void SetUp()
         {
-
-            //itimeProvider = Substitute.For<ITimeProvider>();
             _uut = new TimeProvider();
-
         }
 
         [Test]
@@ -31,10 +28,6 @@ namespace TestUnitLadeskab
         {
             //Test input hvor jeg får timestamp fra system og sammenligner med _uut timestamp
             Assert.That(_uut.TimeStamp, Is.EqualTo(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
-
-            //_uut.TimeStamp
-            //itimeProvider.TimeStamp.Returns(new DateTime("2010, 3, 11, 22,30,50"));
-            
         }
     }
 

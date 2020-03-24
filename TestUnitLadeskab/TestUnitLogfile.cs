@@ -14,8 +14,6 @@ namespace TestUnitLadeskab
     public class TestUnitLogfile
     {
         private LogFile _uut;
-        //private ILogfile iLogfile;
-        //private IChargeControl ichargeControl;
         private IReader ireader;
         private IFileWriter ifilewriter;
         private ITimeProvider itimeProvider;
@@ -24,9 +22,6 @@ namespace TestUnitLadeskab
         [SetUp]
         public void SetUp()
         {
-            //iLogfile = Substitute.For<ILogfile>();
-            //ichargeControl = Substitute.For<IChargeControl>();
-            //ireader = Substitute.For<IReader>();
             ifilewriter = Substitute.For<IFileWriter>();
             itimeProvider = Substitute.For<ITimeProvider>();
 
@@ -47,32 +42,5 @@ namespace TestUnitLadeskab
             _uut.LogMessage("Log to file");
             _ = itimeProvider.Received().TimeStamp;
         }
-
-
-
-
-        //    [TestCase(1594)]
-        //    [TestCase(0)]
-        //    [TestCase(7)]
-        //    public void Available_LogFile_LogDoorLockedCalled(int id)
-        //    {
-        //        ichargeControl.IsConnected().Returns(true);
-        //        ireader.TagDataEvent += Raise.EventWith(new ReadtagChangedEventArgs { Tag = id });
-        //        iLogfile.Received().LogDoorLocked(id);
-
-        //    }
-
-        //    [TestCase(-10)]
-        //    [TestCase(0)]
-        //    [TestCase(23)]
-        //    public void Locked_LogFile_LogDoorUnlockCalled(int id)
-        //    {
-        //        ichargeControl.IsConnected().Returns(true);
-        //        ireader.TagDataEvent += Raise.EventWith(new ReadtagChangedEventArgs { Tag = id });
-        //        ireader.TagDataEvent += Raise.EventWith(new ReadtagChangedEventArgs { Tag = id });
-
-        //        iLogfile.Received().LogDoorUnlocked(id);
-        //    }
-        //}
     }
 }

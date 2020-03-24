@@ -10,19 +10,19 @@ namespace Ladeskab
 {
     public class FileWriter : IFileWriter
     {
-        private string _fileWriter;
+        //private string _fileWriter;
         //private IFileWriter _fileWriter;
 
         
         //public FileWriter(IFileWriter fileWriter)
-        public FileWriter(string fileWriter)
+        public FileWriter()
         {
-            _fileWriter = fileWriter;
+            //_fileWriter = fileWriter;
         }
 
         public void WriteLine(string line)
         {
-            using (var writer = File.AppendText(_fileWriter))
+            using (var writer = File.AppendText("Logfile.txt"))
             {
                 writer.WriteLine(line);
             }

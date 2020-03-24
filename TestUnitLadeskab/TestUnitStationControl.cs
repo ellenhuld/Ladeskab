@@ -19,6 +19,7 @@ namespace TestUnitLadeskab
         private IDoor _iDoor;
         private IReader _iReader;
         private IDisplay _iDisplay;
+        private ILogfile _iLogFile;
 
         [SetUp]
         public void SetUp()
@@ -27,7 +28,8 @@ namespace TestUnitLadeskab
             _iDoor = Substitute.For<IDoor> ();
             _iReader = Substitute.For<IReader>();
             _iDisplay = Substitute.For<IDisplay>();
-            _uut = new StationControl(_iReader, _iDoor, _iDisplay, _iChargeControl);
+            _iLogFile = Substitute.For<ILogfile>();
+            _uut = new StationControl(_iReader, _iDoor, _iDisplay, _iChargeControl, _iLogFile);
 
         }
 
@@ -70,6 +72,7 @@ namespace TestUnitLadeskab
             _iDoor.Received().LockDoor();
             _iDisplay.Received().DisplayMessage("Døren er låst");
             _iChargeControl.Received().Regulate();
+            _iLogFile.Received().LogMessage("Skab låst med RFID: " + id + "");
             _iDisplay.Received().DisplayMessage("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
         }
 
@@ -103,7 +106,7 @@ namespace TestUnitLadeskab
             _iChargeControl.Received().Regulate();
             _iDoor.Received().UnlockDoor();
             _iDisplay.Received().DisplayMessage("Døren er låst op");
-            
+            _iLogFile.Received().LogMessage("Skab låst op med RFID: " + id + "");
             _iDisplay.Received().DisplayMessage("Tag din telefon ud af skabet og luk døren");
         }
 
